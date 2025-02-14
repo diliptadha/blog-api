@@ -1,0 +1,325 @@
+{
+    "info": {
+        "_postman_id": "c9b57a1a-4d53-489b-9355-7eb63687ac31",
+        "name": "blog-api",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "get all blog",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "https://blog-api-284727859074.us-central1.run.app/blog?limit=5&page=1",
+                    "query": [
+                        {
+                            "key": "limit",
+                            "value": "5"
+                        },
+                        {
+                            "key": "page",
+                            "value": "1"
+                        }
+                    ],
+                    "variable": [],
+                    "path": [
+                        "blog"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "blog-api-284727859074",
+                        "us-central1",
+                        "run",
+                        "app"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "get one blog by id",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "https://blog-api-284727859074.us-central1.run.app/blog/asdf",
+                    "path": [
+                        "blog",
+                        "asdf"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "blog-api-284727859074",
+                        "us-central1",
+                        "run",
+                        "app"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "create blog",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://blog-api-284727859074.us-central1.run.app/blog",
+                    "path": [
+                        "blog"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "blog-api-284727859074",
+                        "us-central1",
+                        "run",
+                        "app"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMjQyM2E3LTcxZDQtNGI0MS04NTQ5LTE1Y2FmNDA1NDQ1NyIsImVtYWlsIjoiZEBnbWFpbC5jb20iLCJpYXQiOjE3Mzk1MDgzODAsImV4cCI6MTczOTU5NDc4MH0.yKQdWjtDluiUfpZLghWQsyhGrKokER8eUqm1BbwQlnE"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"title\": \"asdfasdf\",\n  \"content\": \"asdfasdf\"\n}"
+                }
+            }
+        },
+        {
+            "name": "update blog",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "https://blog-api-284727859074.us-central1.run.app/blog/923d3db6-6a8a-4387-9440-433f52f1815c",
+                    "path": [
+                        "blog",
+                        "923d3db6-6a8a-4387-9440-433f52f1815c"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "blog-api-284727859074",
+                        "us-central1",
+                        "run",
+                        "app"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMjQyM2E3LTcxZDQtNGI0MS04NTQ5LTE1Y2FmNDA1NDQ1NyIsImVtYWlsIjoiZEBnbWFpbC5jb20iLCJpYXQiOjE3Mzk1MDgzODAsImV4cCI6MTczOTU5NDc4MH0.yKQdWjtDluiUfpZLghWQsyhGrKokER8eUqm1BbwQlnE"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"title\":\"ok\",\n  \"content\":\"ok\"\n}"
+                }
+            }
+        },
+        {
+            "name": "comment",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://blog-api-284727859074.us-central1.run.app/blog/923d3db6-6a8a-4387-9440-433f52f1815c/comment",
+                    "path": [
+                        "blog",
+                        "923d3db6-6a8a-4387-9440-433f52f1815c",
+                        "comment"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "blog-api-284727859074",
+                        "us-central1",
+                        "run",
+                        "app"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMjQyM2E3LTcxZDQtNGI0MS04NTQ5LTE1Y2FmNDA1NDQ1NyIsImVtYWlsIjoiZEBnbWFpbC5jb20iLCJpYXQiOjE3Mzk1MDgzODAsImV4cCI6MTczOTU5NDc4MH0.yKQdWjtDluiUfpZLghWQsyhGrKokER8eUqm1BbwQlnE"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"comment\": \"asdfasdfasdfasdf\"\n}"
+                }
+            }
+        },
+        {
+            "name": "delete blog",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "https://blog-api-284727859074.us-central1.run.app/blog/0c1f3fc5-8cd7-421c-a130-c9a04b8c5685/",
+                    "path": [
+                        "blog",
+                        "0c1f3fc5-8cd7-421c-a130-c9a04b8c5685"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "blog-api-284727859074",
+                        "us-central1",
+                        "run",
+                        "app"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "token",
+                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMjQyM2E3LTcxZDQtNGI0MS04NTQ5LTE1Y2FmNDA1NDQ1NyIsImVtYWlsIjoiZEBnbWFpbC5jb20iLCJpYXQiOjE3Mzk1MDgzODAsImV4cCI6MTczOTU5NDc4MH0.yKQdWjtDluiUfpZLghWQsyhGrKokER8eUqm1BbwQlnE"
+                    },
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ]
+            }
+        },
+        {
+            "name": "singup",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://blog-api-284727859074.us-central1.run.app/user/signup",
+                    "path": [
+                        "user",
+                        "signup"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "blog-api-284727859074",
+                        "us-central1",
+                        "run",
+                        "app"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"email\":\"d@gmail.com\",\n  \"password\":\"asdf\"\n}"
+                }
+            }
+        },
+        {
+            "name": "login",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "https://blog-api-284727859074.us-central1.run.app/user/login",
+                    "path": [
+                        "user",
+                        "login"
+                    ],
+                    "protocol": "https",
+                    "host": [
+                        "blog-api-284727859074",
+                        "us-central1",
+                        "run",
+                        "app"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "*/*",
+                        "disabled": true
+                    },
+                    {
+                        "key": "User-Agent",
+                        "value": "Thunder Client (https://www.thunderclient.com)",
+                        "disabled": true
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"email\":\"d@gmail.com\",\n  \"password\":\"asdf\"\n}"
+                }
+            }
+        }
+    ]
+}
