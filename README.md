@@ -1,5 +1,9 @@
 # Blog API
 
+## live url
+
+`https://blog-api-284727859074.us-central1.run.app`
+
 ## Total 8 Endpoints
 
 - `GET /blog`: Get all blog posts.
