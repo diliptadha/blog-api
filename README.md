@@ -1,13 +1,15 @@
 # Blog API
 
-## Total 6 Endpoints
+## Total 8 Endpoints
 
-- `GET /blogs`: Get all blog posts.
-- `GET /blogs/:id`: Get a single blog post by ID.
-- `POST /blogs`: Create a new blog post.
-- `PUT /blogs/:id`: Update a blog post by ID.
-- `DELETE /blogs/:id`: Delete a blog post by ID.
-- `POST /blogs/:id/comment`: Add a comment to a blog post by ID.
+- `GET /blog`: Get all blog posts.
+- `GET /blog/:id`: Get a single blog post by ID.
+- `POST /blog`: Create a new blog post.
+- `PUT /blog/:id`: Update a blog post by ID.
+- `DELETE /blog/:id`: Delete a blog post by ID.
+- `POST /blog/:id/comment`: Add a comment to a blog post by ID.
+- `POST /user/signup`: Sign up a new user.
+- `POST /user/login`: Login a user.
 
 ## Example Requests
 
@@ -15,11 +17,12 @@
 
 ```
 curl  -X POST \
-  'http://localhost:8000/blogs/' \
+  'http://localhost:8000/blog' \
+  --header 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1NWJkNzE5LTIzNDYtNGIxNS1iMGJmLTkyNGUxYTQ4NTA0OCIsImVtYWlsIjoiZEBnbWFpbC5jb20iLCJpYXQiOjE3Mzk1MDY3NTEsImV4cCI6MTczOTU5MzE1MX0.uoDAAuCjhKsr0aB-l6DRr110dD-MWGFX3Tel61Wgipo' \
   --header 'Content-Type: application/json' \
   --data-raw '{
-  "title": "blog title",
-  "content": "blog content"
+  "title": "asdfasdf",
+  "content": "asdfasdf"
 }'
 ```
 
@@ -27,25 +30,26 @@ curl  -X POST \
 
 ```
 curl -X GET \
-  'http://localhost:8000/blogs/?limit=5&page=1'
+  'http://localhost:8000/blog/?limit=5&page=1'
 ```
 
 ### Get a Single Blog Post
 
 ```
 curl  -X GET \
-  'http://localhost:8000/blogs/b916b300-17ce-47c6-8082-dbf1431a31cc'
+  'http://localhost:8000/blog/b916b300-17ce-47c6-8082-dbf1431a31cc'
 ```
 
 ### Update a Blog Post
 
 ```
 curl  -X PUT \
-  'http://localhost:8000/blogs/b916b300-17ce-47c6-8082-dbf1431a31cc' \
+  'http://localhost:8000/blog/b916b300-17ce-47c6-8082-dbf1431a31cc' \
+  --header 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1NWJkNzE5LTIzNDYtNGIxNS1iMGJmLTkyNGUxYTQ4NTA0OCIsImVtYWlsIjoiZEBnbWFpbC5jb20iLCJpYXQiOjE3Mzk1MDY5MDgsImV4cCI6MTczOTU5MzMwOH0.Kkn7CFQwZYsM2Yc_w6c0qgBOzCPUlGZWPr_4B90JcRw' \
   --header 'Content-Type: application/json' \
   --data-raw '{
-  "title": "asdf",
-  "content": "asdfasdfsadf"
+  "title":"ok",
+  "content":"ok"
 }'
 ```
 
@@ -53,16 +57,41 @@ curl  -X PUT \
 
 ```
 curl  -X DELETE \
-  'http://localhost:8000/blogs/b916b300-17ce-47c6-8082-dbf1431a31cc'
+  'http://localhost:8000/blog/b916b300-17ce-47c6-8082-dbf1431a31cc'
 ```
 
 ### Add a Comment to a Blog Post
 
 ```
 curl  -X POST \
-  'http://localhost:8000/blogs/b916b300-17ce-47c6-8082-dbf1431a31cc/comment' \
+  'http://localhost:8000/blog/876a0e1c-2101-44b3-9cba-b56d32a3b12c/comment' \
+  --header 'token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk1NWJkNzE5LTIzNDYtNGIxNS1iMGJmLTkyNGUxYTQ4NTA0OCIsImVtYWlsIjoiZEBnbWFpbC5jb20iLCJpYXQiOjE3Mzk1MDY1NjUsImV4cCI6MTczOTU5Mjk2NX0.TRbm-tydCPCLGjwji9HeQLtToQFTWFFH42bZryHdzuo' \
   --header 'Content-Type: application/json' \
   --data-raw '{
   "comment": "asdfasdf"
+}'
+```
+
+### Login a New User
+
+```
+curl  -X POST \
+  'http://localhost:8000/user/login' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+  "email":"d@gmail.com",
+  "password":"asdf"
+}'
+```
+
+### Sign Up a New User
+
+```
+curl  -X POST \
+  'http://localhost:8000/user/signup' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+  "email":"dd@gmail.com",
+  "password":"asdf"
 }'
 ```
