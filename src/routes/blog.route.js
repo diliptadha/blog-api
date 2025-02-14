@@ -8,19 +8,20 @@ import {
   addComment,
 } from "../controllers/blog.controller.js";
 import { validateBlog } from "../middleware/validation.js";
+import { checkUserlogin } from "../middleware/checkAuth.js";
 
-const router = Router();
+const blogRouter = Router();
 
-router.get("/", getAllBlogs);
+blogRouter.get("/", getAllBlogs);
 
-router.get("/:id", getBlogById);
+blogRouter.get("/:id", getBlogById);
 
-router.post("/", validateBlog, createBlog);
+blogRouter.post("/", validateBlog, checkUserlogin, createBlog);
 
-router.post("/:id/comment", addComment);
+blogRouter.post("/:id/comment", checkUserlogin, addComment);
 
-router.put("/:id", validateBlog, updateBlog);
+blogRouter.put("/:id", validateBlog, checkUserlogin, updateBlog);
 
-router.delete("/:id", deleteBlog);
+blogRouter.delete("/:id", checkUserlogin, deleteBlog);
 
-export default router;
+export default blogRouter;
